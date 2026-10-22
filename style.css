@@ -493,3 +493,70 @@ figcaption strong { color: var(--navy); }
   .site-header, .to-top, .nav-toggle, .lab-panel { display: none !important; }
   section { padding: 24px 0; break-inside: avoid-page; }
 }
+
+
+/* FIX: USE MORE OF THE AVAILABLE SCREEN WIDTH */
+
+.section {
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 65px clamp(24px, 4vw, 64px);
+}
+
+.section-heading {
+  max-width: 1050px;
+  width: 100%;
+}
+
+.two-column {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 32px;
+}
+
+.card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.image-card {
+  width: 100%;
+  min-width: 0;
+}
+
+.image-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.diagram-shell,
+.interactive-panel,
+.calculator,
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive layout */
+@media (min-width: 1500px) {
+  .section {
+    max-width: 1600px;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 45px 20px;
+  }
+
+  .two-column,
+  .card-grid,
+  .safety-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
