@@ -1,5 +1,3 @@
-
-/* Surgical Diathermy Unit portfolio — vanilla JavaScript */
 (function () {
   'use strict';
 
