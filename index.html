@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive academic portfolio on surgical diathermy: principles, waveforms, construction, safety and performance testing.">
   <title>Surgical Diathermy Unit | Academic Portfolio</title>
-  <meta name="description" content="Academic portfolio on the surgical diathermy unit: principle, tissue effects, machine construction, waveforms, safety and performance measurement.">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -13,7 +15,8 @@
   <header class="site-header" id="top">
     <div class="header-inner">
       <a class="brand" href="#cover">Surgical Diathermy Unit</a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">Contents</button>
+      <button class="nav-toggle" id="navToggle" type="button"
+        aria-expanded="false" aria-controls="siteNav">Contents</button>
       <nav class="site-nav" id="siteNav" aria-label="Sections">
         <ul>
           <li><a href="#introduction">Introduction</a></li>
@@ -21,12 +24,13 @@
           <li><a href="#techniques">Techniques</a></li>
           <li><a href="#machine">Machine</a></li>
           <li><a href="#waveforms">Waveforms</a></li>
+          <li><a href="#interactive-lab">Interactive lab</a></li>
           <li><a href="#modern">Modern systems</a></li>
           <li><a href="#comparison">Monopolar vs bipolar</a></li>
           <li><a href="#electrodes">Electrodes</a></li>
           <li><a href="#safety">Safety</a></li>
           <li><a href="#analyser">Analyser</a></li>
-          <li><a href="#applications">Uses</a></li>
+          <li><a href="#applications">Applications</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
           <li><a href="#references">References</a></li>
         </ul>
@@ -35,13 +39,11 @@
   </header>
 
   <main id="main">
-    <!-- Cover -->
     <section class="hero" id="cover" aria-labelledby="title">
       <div class="container">
         <p class="hero-kicker">Biomedical Engineering Portfolio</p>
         <h1 id="title">Surgical Diathermy Unit</h1>
-        <p class="hero-sub">Principle, tissue effects, machine construction, waveforms, safety and performance measurement.</p>
-
+        <p class="hero-sub">Principles, tissue effects, waveforms, interactive simulations, safety and performance measurement.</p>
         <dl class="student">
           <div><dt>Name</dt><dd>Bava Prateeksha K S</dd></div>
           <div><dt>Register number</dt><dd>RA2311013010044</dd></div>
@@ -53,288 +55,343 @@
       </div>
     </section>
 
-    <!-- Introduction -->
     <section id="introduction" aria-labelledby="h-introduction">
       <div class="container prose">
         <h2 id="h-introduction">Introduction</h2>
-        <p>Surgical diathermy (electrosurgery) uses high-frequency alternating current to produce a controlled thermal effect in tissue. The heat allows tissue to be cut and bleeding to be controlled during surgery.</p>
-        <p>The generator, active electrode, return path, activation control, alarms and safety monitoring work as one system, and they must be considered together.</p>
-        <p>Electrosurgery is different from electrocautery. In electrosurgery, current passes through the patient. In electrocautery, a heated element is applied to tissue and the patient is not part of the electrical circuit.</p>
-        <p class="note"><strong>Study scope.</strong> This is an academic explanation, not an operating guide. Actual use depends on trained staff, the equipment manual and hospital policy.</p>
+        <p>Surgical diathermy, also called electrosurgery, uses high-frequency alternating current to produce controlled thermal effects in tissue. This enables tissue cutting and haemostasis during surgical procedures.</p>
+        <p>The generator, active electrode, return path, activation control, alarms and safety-monitoring systems work together as one system.</p>
+        <p>Electrosurgery differs from electrocautery. In electrosurgery, current passes through the patient. In electrocautery, a heated element transfers heat to tissue without making the patient part of the electrical circuit.</p>
+        <p class="note"><strong>Academic scope:</strong> These simulations illustrate basic engineering principles. They are not clinical operating instructions or substitutes for equipment manuals.</p>
       </div>
     </section>
 
-    <!-- Principle -->
-    <section id="principle" aria-labelledby="h-principle" class="tint">
+    <section id="principle" class="tint" aria-labelledby="h-principle">
       <div class="container prose">
         <h2 id="h-principle">Principle of surgical diathermy</h2>
-        <p>Radiofrequency (typically several hundred kHz to a few MHz) is used instead of ordinary 50 Hz mains current because rapidly alternating current greatly reduces the risk of neuromuscular stimulation. It still heats tissue wherever current density and tissue impedance create enough power concentration.</p>
-        <p>A small <strong>active electrode</strong> concentrates the current at the treatment site. A large <strong>indifferent (dispersive) electrode</strong> spreads the return current over a wide area, so little heating occurs there.</p>
-        <ul class="path-list" aria-label="Current path elements">
+        <p>Radiofrequency current, commonly in the hundreds of kilohertz to megahertz range, is used to reduce neuromuscular stimulation compared with low-frequency current. It can still cause burns and unintended tissue heating.</p>
+        <p>In monopolar electrosurgery, a small active electrode concentrates current at the treatment site. A larger dispersive return electrode spreads the returning current over a wider contact area.</p>
+        <ul class="path-list" aria-label="Current path">
           <li><span>Source</span>RF generator</li>
-          <li><span>Focus</span>Small active electrode</li>
-          <li><span>Return</span>Large indifferent electrode</li>
+          <li><span>Focus</span>Active electrode</li>
+          <li><span>Return</span>Dispersive electrode</li>
         </ul>
-        <p class="formula" role="math" aria-label="I equals V over R; P equals V times I equals I squared R">I = V / R &nbsp;&nbsp; P = V × I = I²R</p>
-        <p>Because heating follows I²R, it is greatest where current density is highest, which is at the small active electrode.</p>
+        <p class="formula" role="math" aria-label="Current equals voltage divided by resistance; power equals current squared times resistance">I = V / R &nbsp;&nbsp; | &nbsp;&nbsp; P = V × I = I²R</p>
+        <p>The relationship \(P=I^2R\) describes resistive power for a suitable electrical load. Actual tissue heating also depends on current distribution, waveform, tissue properties, and time.</p>
       </div>
     </section>
 
-    <!-- Techniques -->
     <section id="techniques" aria-labelledby="h-techniques">
       <div class="container">
         <div class="prose">
           <h2 id="h-techniques">Electrosurgical techniques</h2>
-          <p>Different waveforms and contact conditions produce different tissue effects.</p>
+          <p>Waveform characteristics and electrode contact influence the tissue effect.</p>
         </div>
         <div class="table-wrap">
           <table>
-            <caption class="sr-only">Electrosurgical effects, contact or waveform, and tissue result</caption>
-            <thead><tr><th scope="col">Effect</th><th scope="col">Contact / waveform</th><th scope="col">Tissue result and use</th></tr></thead>
+            <thead><tr><th>Effect</th><th>Typical characteristics</th><th>Tissue result</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Electrotomy (cutting)</th><td>Fine electrode; relatively continuous RF</td><td>Rapid cellular vaporization separates tissue.</td></tr>
-              <tr><th scope="row">Coagulation</th><td>Interrupted, damped RF bursts</td><td>Protein denaturation and haemostasis.</td></tr>
-              <tr><th scope="row">Fulguration</th><td>Non-contact spark-gap arcing</td><td>Superficial coagulation with more surface carbonization.</td></tr>
-              <tr><th scope="row">Desiccation</th><td>Direct electrode contact</td><td>Water is driven out of tissue; deeper coagulation.</td></tr>
-              <tr><th scope="row">Blend</th><td>Modulated cut waveform</td><td>Cutting with added haemostasis; settings vary by unit.</td></tr>
+              <tr><th>Electrotomy</th><td>Fine electrode; relatively continuous RF</td><td>Rapid cellular vaporisation separates tissue.</td></tr>
+              <tr><th>Coagulation</th><td>Interrupted RF bursts</td><td>Protein denaturation and haemostasis.</td></tr>
+              <tr><th>Fulguration</th><td>Non-contact electrical arcing</td><td>Superficial coagulation; possible carbonisation.</td></tr>
+              <tr><th>Desiccation</th><td>Electrode in direct contact</td><td>Water loss and tissue coagulation.</td></tr>
+              <tr><th>Blend</th><td>Modulated or interrupted cutting output</td><td>Cutting with a degree of haemostasis.</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- Machine -->
-    <section id="machine" aria-labelledby="h-machine" class="tint">
+    <section id="machine" class="tint" aria-labelledby="h-machine">
       <div class="container">
         <div class="prose">
           <h2 id="h-machine">Machine construction and working</h2>
-          <p>A diathermy unit contains an isolated power supply, an RF oscillator, logic and control circuits, a power output stage, an isolation arrangement, mode controls, active and return connections, hand or foot activation, and audio tone and alarm circuits. <a href="#fig1" class="figref">Figure 1</a> shows a solid-state unit with its return plate and hand-held electrodes.</p>
+          <p>A typical unit contains a power supply, RF generation and output stages, control logic, mode and power controls, electrode connections, activation switches, alarms and safety monitoring.</p>
         </div>
 
         <figure class="figure" id="fig1">
-          <button class="zoom" type="button" data-full="images/figure-1-electrosurgical-unit.png" aria-label="Enlarge Figure 1">
-            <img src="images/figure-1-electrosurgical-unit.png" width="692" height="465" loading="lazy"
-                 alt="Grey solid-state electrosurgical unit labelled ERBE ICC 350 with mode and power displays, connected to a return plate, two pencil-style hand electrodes and bipolar forceps.">
+          <button class="zoom" type="button"
+            data-full="images/figure-1-electrosurgical-unit.png"
+            aria-label="Enlarge Figure 1">
+            <img src="images/figure-1-electrosurgical-unit.png"
+              width="692" height="465" loading="lazy"
+              alt="Solid-state electrosurgical unit with controls, return plate, hand electrodes and bipolar forceps.">
           </button>
-          <figcaption><strong>Figure 1.</strong> Solid-state electrosurgical diathermy machine with return plate, hand-held electrodes and bipolar forceps (Courtesy: M/s ERBE, Germany). Source: R. S. Khandpur, <cite>Handbook of Biomedical Instrumentation</cite>, Chapter 27.</figcaption>
+          <figcaption><strong>Figure 1.</strong> Solid-state electrosurgical unit and associated electrodes. Source attribution: R. S. Khandpur, <cite>Handbook of Biomedical Instrumentation</cite>, Chapter 27; courtesy of ERBE, Germany, as cited in the supplied source.</figcaption>
         </figure>
 
         <div class="prose">
-          <h3>Block diagram (functional sequence)</h3>
-          <p class="small">The sequence below lists the blocks in signal order. It is written as text, as the textbook diagram is not reproduced on this page.</p>
+          <h3>Interactive functional block diagram</h3>
+          <p>Select a block to explore its function. Arrows show a simplified functional sequence, not a detailed circuit schematic.</p>
         </div>
-        <ol class="sequence">
-          <li>Power supply and isolation</li>
-          <li>RF oscillator</li>
-          <li>Logic and control</li>
-          <li>Power output stage</li>
-          <li>Mode and power controls</li>
-          <li>Active and indifferent electrode connections</li>
-          <li>Audio tone, alarm and safety monitoring</li>
-        </ol>
+
+        <div class="block-diagram" aria-label="Functional block diagram">
+          <div class="diagram-row">
+            <button class="diagram-node" data-info="power" aria-pressed="false">
+              <span class="node-number">01</span><strong>Power supply</strong><small>Input and isolation</small>
+            </button>
+            <span class="diagram-arrow" aria-hidden="true">→</span>
+            <button class="diagram-node" data-info="oscillator" aria-pressed="false">
+              <span class="node-number">02</span><strong>RF oscillator</strong><small>RF signal generation</small>
+            </button>
+            <span class="diagram-arrow" aria-hidden="true">→</span>
+            <button class="diagram-node" data-info="control" aria-pressed="false">
+              <span class="node-number">03</span><strong>Control circuit</strong><small>Mode and activation</small>
+            </button>
+            <span class="diagram-arrow" aria-hidden="true">→</span>
+            <button class="diagram-node" data-info="output" aria-pressed="false">
+              <span class="node-number">04</span><strong>RF output stage</strong><small>Power delivery</small>
+            </button>
+          </div>
+          <div class="diagram-connector" aria-hidden="true">↓</div>
+          <div class="diagram-row diagram-row-secondary">
+            <button class="diagram-node" data-info="active" aria-pressed="false">
+              <span class="node-number">05</span><strong>Active electrode</strong><small>Current concentration</small>
+            </button>
+            <span class="diagram-arrow" aria-hidden="true">←</span>
+            <button class="diagram-node" data-info="tissue" aria-pressed="false">
+              <span class="node-number">06</span><strong>Target tissue</strong><small>Thermal effect</small>
+            </button>
+            <span class="diagram-arrow" aria-hidden="true">←</span>
+            <button class="diagram-node" data-info="return" aria-pressed="false">
+              <span class="node-number">07</span><strong>Return electrode</strong><small>Monopolar return path</small>
+            </button>
+          </div>
+          <div class="diagram-feedback">
+            <span aria-hidden="true">↕</span>
+            <div><strong>Safety monitoring and feedback</strong>
+              <p>Activation controls, alarms and return-electrode contact monitoring, where provided.</p>
+            </div>
+          </div>
+          <div class="diagram-info" id="diagramInfo" aria-live="polite">Select any block to learn about its function.</div>
+        </div>
 
         <div class="prose">
           <h3>Working</h3>
-          <p>The operator selects the mode and output power. When the hand switch or foot switch is pressed, the oscillator generates RF energy. The output stage delivers it through the chosen electrode circuit, and an audio tone signals that the output is active. The current returns to the generator through the indifferent electrode, and the alarms supervise the return path.</p>
+          <p>The user selects an operating mode and output setting. Activation initiates RF delivery through the selected output circuit. The return path depends on the technique: monopolar operation normally uses a dispersive return electrode, while conventional bipolar operation passes current between electrodes at the instrument tip.</p>
           <h3>Output circuit arrangements</h3>
-          <p>Output circuits may use direct connection to earth, capacitor coupling, or an RF-isolated output. These arrangements show why low-frequency leakage and high-frequency return paths must be considered separately. An isolated output reduces the chance of current finding an unintended earth return path through the patient.</p>
+          <p>Generator designs can differ in grounding, coupling and RF isolation. These differences affect leakage paths and electrical safety, so performance must be assessed using the relevant manufacturer instructions and applicable test procedures.</p>
         </div>
       </div>
     </section>
 
-    <!-- Waveforms -->
     <section id="waveforms" aria-labelledby="h-waveforms">
       <div class="container">
         <div class="prose">
           <h2 id="h-waveforms">Operating modes and waveforms</h2>
-          <p>Surgical diathermy machines generate different waveforms for each mode. Early units used electron-tube circuits, while modern units are solid state.</p>
+          <p>Cutting generally uses a relatively continuous RF waveform, whereas coagulation commonly uses interrupted bursts. Blend modes modify the output to combine cutting and haemostatic effects.</p>
         </div>
         <div class="table-wrap">
           <table>
-            <caption class="sr-only">Waveform character and tissue effect for each output mode</caption>
-            <thead><tr><th scope="col">Mode</th><th scope="col">Waveform character</th><th scope="col">Effect</th></tr></thead>
+            <thead><tr><th>Mode</th><th>Waveform character</th><th>Typical effect</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Cut</th><td>Relatively continuous RF</td><td>Supports vaporization and clean separation of tissue.</td></tr>
-              <tr><th scope="row">Coagulation</th><td>Interrupted bursts with higher crest voltage and lower average duty</td><td>Heats tissue with less cutting; haemostasis.</td></tr>
-              <tr><th scope="row">Blend</th><td>Cut waveform that is interrupted</td><td>Cutting with added haemostasis.</td></tr>
+              <tr><th>Cut</th><td>Relatively continuous RF</td><td>Supports tissue vaporisation and separation.</td></tr>
+              <tr><th>Coagulation</th><td>Interrupted RF bursts</td><td>Supports coagulation and haemostasis.</td></tr>
+              <tr><th>Blend</th><td>Modified or interrupted cut output</td><td>Combines cutting and haemostatic effects.</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="prose"><p class="small">Exact voltage, power and modulation depend on the equipment.</p></div>
+        <div class="prose"><p class="small">Actual waveforms, frequencies, voltages and duty cycles vary between generator designs. The graph in the interactive lab is schematic.</p></div>
       </div>
     </section>
 
-    <!-- Modern systems -->
-    <section id="modern" aria-labelledby="h-modern" class="tint">
+    <section id="interactive-lab" class="tint" aria-labelledby="h-interactive-lab">
+      <div class="container">
+        <div class="prose">
+          <h2 id="h-interactive-lab">Interactive Electrosurgery Lab</h2>
+          <p>Change the controls to explore illustrative RF waveforms and the mathematical relationship between current, resistance and resistive power.</p>
+        </div>
+
+        <div class="lab-panel">
+          <h3>1. Live RF waveform explorer</h3>
+          <p class="small">Switch modes and move the frequency slider. The display uses a compressed schematic waveform, not a real-time measurement or an exact clinical waveform.</p>
+          <label for="waveMode">Operating mode</label>
+          <select id="waveMode">
+            <option value="cut">Cut — continuous waveform</option>
+            <option value="coag">Coagulation — interrupted bursts</option>
+            <option value="blend">Blend — modulated waveform</option>
+          </select>
+          <div class="slider-control">
+            <label for="rfFrequency">Illustrative RF frequency</label>
+            <output id="rfFrequencyValue" for="rfFrequency">500 kHz</output>
+            <input id="rfFrequency" type="range" min="300" max="1000" step="50" value="500">
+            <div class="range-labels"><span>300 kHz</span><span>1000 kHz</span></div>
+          </div>
+          <div class="wave-canvas-wrap">
+            <canvas id="waveCanvas" role="img" aria-label="Schematic radiofrequency waveform">
+              Schematic RF waveform. Use the controls to change the display.
+            </canvas>
+          </div>
+          <p id="waveDescription" class="lab-status" aria-live="polite">Cut mode: continuous illustrative RF oscillation.</p>
+        </div>
+
+        <div class="lab-panel">
+          <h3>2. Live resistive-power calculator</h3>
+          <p class="small">Explore P = I²R using an idealised resistive load. This calculation is not a prediction of patient tissue heating or a recommended clinical setting.</p>
+          <div class="slider-control">
+            <label for="currentSlider">Illustrative current (I)</label>
+            <output id="currentValue" for="currentSlider">0.50 A</output>
+            <input id="currentSlider" type="range" min="0.1" max="1" step="0.05" value="0.5">
+          </div>
+          <div class="slider-control">
+            <label for="resistanceSlider">Illustrative resistance (R)</label>
+            <output id="resistanceValue" for="resistanceSlider">200 Ω</output>
+            <input id="resistanceSlider" type="range" min="50" max="500" step="10" value="200">
+          </div>
+          <div class="power-result">
+            <span>Calculated resistive power</span>
+            <output id="powerValue" aria-live="polite">50.00 W</output>
+            <div class="power-track" aria-hidden="true"><div id="powerBar" class="power-bar"></div></div>
+            <p class="small">The bar is scaled to the calculator's maximum possible value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modern" class="tint" aria-labelledby="h-modern">
       <div class="container">
         <div class="prose">
           <h2 id="h-modern">Modern and automated systems</h2>
-          <p>Modern units may use microprocessor control, tissue-response sensing, voltage control and spark-intensity control. Some generators adjust their output as tissue dries or its impedance changes, which improves consistency. Settings are still not universal across manufacturers.</p>
-          <p>Soft, forced and spray coagulation are different coagulation modes. The exact energy, distance and clinical use must come from the generator's own labelling and manual.</p>
+          <p>Modern generators may use microprocessor control, tissue-response sensing and output regulation. Some systems adjust output as tissue impedance changes. Features differ by manufacturer and model.</p>
+          <p>Soft, forced and spray coagulation are examples of coagulation modes. Their exact characteristics must be taken from the specific generator documentation.</p>
         </div>
         <div class="table-wrap">
           <table>
-            <caption class="sr-only">Soft, forced and spray coagulation modes</caption>
-            <thead><tr><th scope="col">Mode</th><th scope="col">Description</th></tr></thead>
+            <thead><tr><th>Mode</th><th>General description</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Soft</th><td>Contact coagulation with controlled tissue heating.</td></tr>
-              <tr><th scope="row">Forced</th><td>More visible sparking and faster coagulation.</td></tr>
-              <tr><th scope="row">Spray</th><td>Non-contact surface coagulation through arcing.</td></tr>
+              <tr><th>Soft</th><td>Contact coagulation with controlled heating.</td></tr>
+              <tr><th>Forced</th><td>Coagulation mode that permits more pronounced sparking than soft coagulation in relevant systems.</td></tr>
+              <tr><th>Spray</th><td>Non-contact coagulation using electrical arcing.</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- Monopolar vs bipolar -->
     <section id="comparison" aria-labelledby="h-comparison">
       <div class="container">
         <div class="prose">
           <h2 id="h-comparison">Monopolar vs bipolar techniques</h2>
-          <p>In the monopolar technique, current flows from the generator through the active electrode, the target tissue and the patient, then returns through the dispersive electrode. In the bipolar technique, both electrode functions are at the instrument tip, so current is concentrated between the two jaws or tips.</p>
+          <p>In monopolar operation, current travels from the active electrode through the target and patient to the dispersive return electrode. In bipolar operation, current passes between two electrodes at the instrument tip.</p>
         </div>
         <div class="table-wrap">
           <table>
-            <caption class="sr-only">Comparison of monopolar and bipolar techniques</caption>
-            <thead><tr><th scope="col">Feature</th><th scope="col">Monopolar</th><th scope="col">Bipolar</th></tr></thead>
+            <thead><tr><th>Feature</th><th>Monopolar</th><th>Bipolar</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Current path</th><td>Generator → active electrode → patient → dispersive electrode → generator</td><td>Between the two electrodes at the instrument tip</td></tr>
-              <tr><th scope="row">Return electrode</th><td>Required</td><td>Usually not required for conventional bipolar use</td></tr>
-              <tr><th scope="row">Main advantage</th><td>Versatile cutting and coagulation</td><td>More localized current path</td></tr>
-              <tr><th scope="row">Main concern</th><td>Return-pad contact and alternate current paths</td><td>Correct connection, tissue sticking and local thermal spread</td></tr>
+              <tr><th>Current path</th><td>Active electrode → target tissue → patient return path → dispersive electrode</td><td>Between electrodes at the instrument tip</td></tr>
+              <tr><th>Return electrode</th><td>Normally required</td><td>Normally not required for conventional bipolar use</td></tr>
+              <tr><th>Advantage</th><td>Versatile cutting and coagulation options</td><td>Localised current path</td></tr>
+              <tr><th>Consideration</th><td>Return-pad contact and alternate current paths</td><td>Local thermal spread and instrument condition</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- Electrodes -->
-    <section id="electrodes" aria-labelledby="h-electrodes" class="tint">
+    <section id="electrodes" class="tint" aria-labelledby="h-electrodes">
       <div class="container prose">
         <h2 id="h-electrodes">Electrodes</h2>
-        <p>Cutting electrodes include needle, angulated lancet, wire loop, angulated band loop and straight lancet types. Fine electrodes give higher current density and are used for precise cutting.</p>
-        <p>Ball and plate electrodes have larger contact areas and are used for coagulation. Shape, contact area, tissue conductivity, activation time and electrode cleanliness all influence the result.</p>
-        <p>The large return plate seen beside the unit in <a href="#fig1" class="figref">Figure 1</a> is the indifferent electrode, which completes the monopolar circuit.</p>
+        <p>Cutting electrodes include needle, lancet and loop designs. Their geometry affects current concentration and the precision of the tissue effect.</p>
+        <p>Ball and plate electrodes provide larger contact areas and are commonly associated with coagulation. Contact area, tissue properties, activation duration and electrode condition influence the outcome.</p>
+        <p>The large dispersive plate used in monopolar operation completes the return circuit.</p>
       </div>
     </section>
 
-    <!-- Safety -->
     <section id="safety" aria-labelledby="h-safety">
       <div class="container">
-        <div class="prose">
-          <h2 id="h-safety">Safety hazards</h2>
-        </div>
+        <div class="prose"><h2 id="h-safety">Safety hazards</h2></div>
         <div class="table-wrap">
           <table>
-            <caption class="sr-only">Hazards, possible causes and preventive measures</caption>
-            <thead><tr><th scope="col">Hazard</th><th scope="col">Possible cause</th><th scope="col">Preventive measure</th></tr></thead>
+            <thead><tr><th>Hazard</th><th>Possible cause</th><th>Risk-reduction principle</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Patient burn</th><td>Poor return-electrode contact or small contact area</td><td>Use a compatible pad on clean, dry skin and verify full contact.</td></tr>
-              <tr><th scope="row">Alternate current path</th><td>Patient contact with metal, monitoring electrodes or another conductor</td><td>Insulate contact points and position accessories appropriately.</td></tr>
-              <tr><th scope="row">Insulation failure</th><td>Cracked or damaged instrument insulation</td><td>Inspect instruments before use and remove damaged items from service.</td></tr>
-              <tr><th scope="row">Direct / capacitive coupling</th><td>Unintended transfer to another instrument</td><td>Keep the active tip in view and use the lowest effective power.</td></tr>
-              <tr><th scope="row">Implanted electronic device</th><td>RF interference</td><td>Review the implant and generator manufacturer guidance with the clinical team.</td></tr>
-              <tr><th scope="row">Fire and plume</th><td>Spark near wet prep, oxygen or combustible material</td><td>Allow prep to dry, manage oxygen and use smoke evacuation.</td></tr>
-              <tr><th scope="row">Wrong setting or connection</th><td>Incorrect mode, port or excessive output</td><td>Confirm mode, power, connections, alarms and the local checklist.</td></tr>
+              <tr><th>Patient burn</th><td>Poor return-electrode contact or small contact area</td><td>Use compatible equipment and follow return-electrode instructions and local protocols.</td></tr>
+              <tr><th>Alternate current path</th><td>Unintended contact with conductive objects or accessories</td><td>Follow patient positioning and accessory-placement procedures.</td></tr>
+              <tr><th>Insulation failure</th><td>Damaged instrument insulation</td><td>Inspect equipment and remove damaged items from service.</td></tr>
+              <tr><th>Unintended coupling</th><td>Energy transfer to another instrument</td><td>Follow training, instrument inspection and manufacturer instructions.</td></tr>
+              <tr><th>Implanted electronic device</th><td>Electromagnetic interference</td><td>Consult the clinical team and relevant device guidance.</td></tr>
+              <tr><th>Fire and surgical plume</th><td>Ignition sources, oxidiser-rich environments or combustible material</td><td>Follow surgical fire prevention and smoke-evacuation protocols.</td></tr>
+              <tr><th>Incorrect settings or connections</th><td>Wrong mode, port or output selection</td><td>Verify setup according to the approved checklist and device instructions.</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="prose"><p class="note">Safety depends on the whole perioperative team. The equipment manual, hospital policy and current safety guidance take priority over this summary table.</p></div>
+        <div class="prose"><p class="note">Actual clinical use requires trained personnel, the device manual and hospital policy. This portfolio is educational material only.</p></div>
       </div>
     </section>
 
-    <!-- Analyser -->
-    <section id="analyser" aria-labelledby="h-analyser" class="tint">
+    <section id="analyser" class="tint" aria-labelledby="h-analyser">
       <div class="container">
         <div class="prose">
           <h2 id="h-analyser">Surgical diathermy analyser</h2>
-          <p>An analyser checks output power and electrical performance using a known non-inductive load. Current and voltage are measured, then an RMS conversion, a thermal converter or thermocouple, and a DC amplifier condition the result for display.</p>
-          <p>In a service test, the operator connects the output, selects the specified mode, measures the response and compares it with the permitted tolerance in the service procedure. A feedback or alarm function can flag an output outside the expected range.</p>
+          <p>A surgical diathermy analyser evaluates generator output using an appropriate load and measurement method. Depending on the analyser, it may measure output power, current, voltage, frequency and high-frequency leakage.</p>
+          <p>Measurements are compared with the manufacturer's specifications and applicable service tolerances. Only suitable instruments and approved procedures should be used for testing.</p>
           <h3>Measurement chain</h3>
         </div>
         <ol class="sequence">
           <li>Generator output</li>
-          <li>Non-inductive load</li>
-          <li>Current and voltage measurement</li>
-          <li>RMS or thermal converter</li>
-          <li>Display and feedback</li>
+          <li>Specified test load</li>
+          <li>Voltage and current sensing</li>
+          <li>Measurement and signal conditioning</li>
+          <li>Display and comparison with tolerance</li>
         </ol>
       </div>
     </section>
 
-    <!-- Advantages, limitations, applications -->
     <section id="applications" aria-labelledby="h-applications">
       <div class="container">
-        <div class="prose">
-          <h2 id="h-applications">Advantages, limitations and applications</h2>
-        </div>
+        <div class="prose"><h2 id="h-applications">Advantages, limitations and applications</h2></div>
         <div class="three-col">
-          <div>
-            <h3>Advantages</h3>
-            <ul>
-              <li>Rapid cutting and haemostasis.</li>
-              <li>Several electrode shapes and modes.</li>
-              <li>Can be monitored and feedback-controlled.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Limitations</h3>
-            <ul>
-              <li>Thermal spread is not zero.</li>
-              <li>Smoke and carbonization may obscure the field.</li>
-              <li>Settings vary between devices.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Applications</h3>
-            <ul>
-              <li>General and specialty surgery.</li>
-              <li>Endoscopic haemostasis.</li>
-              <li>Equipment testing and maintenance.</li>
-            </ul>
-          </div>
+          <div><h3>Advantages</h3><ul>
+            <li>Rapid cutting and haemostasis.</li>
+            <li>Multiple modes and electrode designs.</li>
+            <li>Potential for output monitoring and feedback.</li>
+          </ul></div>
+          <div><h3>Limitations</h3><ul>
+            <li>Thermal spread cannot be eliminated.</li>
+            <li>Smoke may obscure the field.</li>
+            <li>Settings vary across devices.</li>
+          </ul></div>
+          <div><h3>Applications</h3><ul>
+            <li>General and specialty surgery.</li>
+            <li>Endoscopic procedures.</li>
+            <li>Equipment testing and maintenance.</li>
+          </ul></div>
         </div>
       </div>
     </section>
 
-    <!-- Conclusion -->
-    <section id="conclusion" aria-labelledby="h-conclusion" class="tint">
+    <section id="conclusion" class="tint" aria-labelledby="h-conclusion">
       <div class="container prose">
         <h2 id="h-conclusion">Conclusion</h2>
-        <p>A surgical diathermy unit is a controlled RF energy system. Its clinical effect depends on waveform, electrode geometry, tissue response, current path and activation time.</p>
-        <p>Safe use requires the correct mode, a verified circuit, the lowest effective output, and continuous attention to alarms, return-electrode contact and fire risk.</p>
+        <p>A surgical diathermy unit is a controlled RF energy system. Its effects depend on waveform, electrode geometry, tissue response, current path and activation time.</p>
+        <p>The interactive graph and calculator demonstrate simplified engineering principles, while the block diagram explains the functional relationship between major subsystems.</p>
       </div>
     </section>
 
-    <!-- References -->
     <section id="references" aria-labelledby="h-references">
       <div class="container prose">
         <h2 id="h-references">References</h2>
         <ol class="refs">
-          <li>Khandpur, R. S. (2014). <cite>Handbook of Biomedical Instrumentation</cite> (3rd ed.). New Delhi: McGraw Hill Education (India). ISBN 978-93-392-0543-0. Chapter 27: Instruments for Surgery.</li>
-          <li>Alkatout, I., Schollmeyer, T., Hawaldar, N. A., Sharma, N., &amp; Mettler, L. (2012). Principles and safety measures of electrosurgery in laparoscopy. <cite>JSLS: Journal of the Society of Laparoscopic &amp; Robotic Surgeons</cite>, 16(1), 130–139. <a href="https://doi.org/10.4293/108680812X13291597716348" target="_blank" rel="noopener">https://doi.org/10.4293/108680812X13291597716348</a></li>
+          <li>Khandpur, R. S. (2014). <cite>Handbook of Biomedical Instrumentation</cite> (3rd ed.). McGraw Hill Education (India). Chapter 27: Instruments for Surgery. ISBN 978-93-392-0543-0.</li>
+          <li>Alkatout, I., Schollmeyer, T., Hawaldar, N. A., Sharma, N., &amp; Mettler, L. (2012). Principles and safety measures of electrosurgery in laparoscopy. <cite>JSLS: Journal of the Society of Laparoendoscopic Surgeons</cite>, 16(1), 130–139. <a href="https://doi.org/10.4293/108680812X13291597716348" target="_blank" rel="noopener noreferrer">https://doi.org/10.4293/108680812X13291597716348</a></li>
         </ol>
         <h3>Image attribution</h3>
-        <p>Figure 1 is taken from the supplied copy of the textbook cited as reference 1. Courtesy: M/s ERBE, Germany.</p>
+        <p>Figure 1: textbook image attribution should be retained as stated in the supplied source and confirmed against the original image.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Bava Prateeksha K S &middot; RA2311013010044 &middot; Biomedical Engineering</p>
+      <p>Bava Prateeksha K S · RA2311013010044 · Biomedical Engineering</p>
       <p>Biomedical Equipments for Clinical Applications (21BMC402J). Academic study material only.</p>
     </div>
   </footer>
 
   <dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
-    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close enlarged figure">Close</button>
+    <button type="button" class="lightbox-close" id="lightboxClose">Close</button>
     <img id="lightboxImg" src="" alt="">
     <p id="lightboxCaption"></p>
   </dialog>
 
   <button class="to-top" id="toTop" type="button" aria-label="Back to top" hidden>Top</button>
-
-  <script src="script.js"></script>
 </body>
 </html>
